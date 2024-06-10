@@ -224,8 +224,9 @@ export default {
       let line = document.querySelector("#line_" + index.value);
       //更新路径的偏移量
       line.style.strokeDashoffset = frames.value;
-      line.getPointAtLength(length.value - frames.value);
-      line.getPointAtLength((length.value - frames.value + 2) % length.value);
+      // 测试api
+      // line.getPointAtLength(length.value - frames.value);
+      // line.getPointAtLength((length.value - frames.value + 2) % length.value);
 
       //如果当前索引大于1，重置前一个路径的偏移量，并隐藏对应的文本框。
       if (index.value > 1) {

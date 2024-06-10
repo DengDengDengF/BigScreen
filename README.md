@@ -10,3 +10,36 @@
 中间的动画使用了svg路径设计
 
 ![image.png](https://s2.loli.net/2024/06/03/WGrgFxq9O1R5NTf.png)
+
+中间路径动画抽象简单逻辑：
+
+```js
+<svg style="width: 200px; height: 200px;border: 1px solid red" xmlns="http://www.w3.org/2000/svg" viewBox="150 400 100 100">
+    <!-- 定义路径 -->
+    <path id="path" d="M150,402 L150,432 250,432" stroke="#AFE5FB" stroke-width="2" fill="none"/>
+</svg>
+
+
+ let dom = document.getElementById('path');
+    let length = dom.getTotalLength();
+    let speed = 1;
+
+    /*
+    * 隐藏路径*/
+    function init() {
+        dom.style.strokeDasharray = length;
+        dom.style.strokeDashoffset = length;
+    }
+
+    //逐渐向右偏移
+    function animate() {
+        if (parseInt(dom.style.strokeDashoffset) !== 0) {
+            dom.style.strokeDashoffset -= speed;
+            requestAnimationFrame(animate)
+        }
+    }
+
+    init()
+    animate();
+```
+
