@@ -132,6 +132,10 @@ export default {
       myChart.value.clear();
       myChart.value.resize()
       myChart.value.setOption(option);
+      // 处理点击事件并且跳转到相应的百度搜索页面
+      myChart.value.on('click', function(params) {
+        window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+      });
     }
     onMounted(() => {
       // console.log(props.data.data)

@@ -41,7 +41,7 @@ watch(() => props.selectRangeDate, () => {
 </svg>
 
 
- let dom = document.getElementById('path');
+    let dom = document.getElementById('path');
     let length = dom.getTotalLength();
     let speed = 1;
 

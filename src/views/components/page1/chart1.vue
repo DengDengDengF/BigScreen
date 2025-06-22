@@ -464,9 +464,12 @@ export default {
       //用markRaw将Echarts实例标记为原始对象
       if (!myChart.value) myChart.value = markRaw(echarts(doubleArea.value));
       myChart.value.clear();
-      myChart.value.resize()
+      myChart.value.resize();
       myChart.value.setOption(option);
+
     }
+
+
     onMounted(() => {
       setChart();
     })
